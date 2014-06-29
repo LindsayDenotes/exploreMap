@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>exploreMap</title>
+
+</head>
+
+<body onload="init();" style="background-color:#FFFFFF">
+	<canvas id="canvas" width="600" height="500" style="background-color:#FFFFFF">
+    </canvas>
+    <br/>
+    <div id="txtDOT"> 
+     <form>
+       <input type="textarea" rows="25" cols="50" wrap="hard" id="txtDOT" value="test"/>  
+    </form>
+    </div>
+    
+   
+
+  
+
+<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!--script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script-->
+<script src="exploreMap.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	exportRoot = new lib.exploreMap();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+
+}
+	 
+</script>
+</body>
+</html>
