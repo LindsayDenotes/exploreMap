@@ -17,34 +17,44 @@ lib.properties = {
 
 	// timeline functions:
 	this.frame_0 = function() {
-
-
-/*
-	$(document).ready(function(){
-	var  = []; //states instead of items didn't make a difference
-
-	$.getJSON("stateInfoList.json", function( data ) {  //this is the get resource function
-	console.log(data);
-    // Note that "data" is the whole JSON object. 
-    // Since you have an array in it, you will need to target that instead
-    $.each(data.items, function( key, value ) {
-        items.push( "<li id='" + key + "'>" + val + "</li>" );
-    });
-	
-
- 	$( "<ul/>", {
-
-	 "class": "my-new-list",
-
-	html: items.join( "" )
-
-	 }).appendTo( "txtDOT" );//"txtDOT" is the name of my text field in the HTML file. 
-
-	});
-});
-*/
 		
-
+			
+		$(document).ready(function(){
+			
+		var items = []; //states instead of items didn't make a difference
+	
+			$.getJSON("stateInfoList.json", function( data ) {  //this is the get resource function
+				console.log(data);
+				// Note that "data" is the whole JSON object. 
+				// Since you have an array in it, you will need to target that instead in for loop below
+					$.each(data.items, function( key, val ) {
+						console.log( key, val );
+						//Nupur deleted the line that was here that I thought was returning key, val as index, data.
+						//Nupur says format JS string to HTML here
+								
+						//items.push( "<li stateInfo=\'' + JSON.stringify(val) + '\'>" + val.state + " " + val.contacts + "</li>");		
+						//console.log( "<li stateInfo=\'' + JSON.stringify(val) + '\'>" + val.state + " " + val.contacts + "</li>" );
+						items.push( "<li id=state'" + key + "'>" + JSON.stringify(val.state) + "<li id=contacts'>" + JSON.stringify(val.contacts) + "'</li></li>");
+						console.log( "<li id=state'" + key + "'>" + JSON.stringify(val.state) + "<li id=contacts'>" + JSON.stringify(val.contacts) + "'</li></li>");
+					
+					html: items.join( "" )
+						}).appendTo( "#txtDOT" );//"txtDOT" is the name of my text div in the HTML file. 
+			});
+		});
+				
+				// Mouse Click Event not working for FL. 7/7/14 I commented out the original FL mouse click handler.Read more about this on function.		
+				$("li").on("click", function (e) {//Using e is just a short for event. You can pass any variable name you desire.
+				var $e = $(e.target);
+				});
+				
+				//add all <li> items to a not displayed <ul> element
+				$( "<ul/>", {		
+				 //"id": "txtDOT",
+				 "class": "my-new-list",//how does class correspond with my HTML file? this class is display none, so do I need to put a class tag anywhere in my html?					
+		
+		
+		
+	});	
 		
 		//Mouse Click Event
 		 
@@ -53,7 +63,8 @@ lib.properties = {
 		var fl_TF_18 = new createjs.Text();
 		fl_TextToDisplay_18 = "";
 		
-		function fl_MouseClickHandler_18() {
+		function fl_MouseClickHandler_18() 
+		{
 			fl_TF_18.x = 15;
 			fl_TF_18.y = 400;
 			fl_TF_18.color = "#000000";
@@ -62,22 +73,7 @@ lib.properties = {
 			this.addChild(fl_TF_18);
 		
 			this.flSelected.visible = true;
-			
-			var data = $.getJSON('stateInfoList.json', function(data) {
-	
-			})
-			alert(data);
-						
-			//The function below successfully loaded internal string value 6/29/14
-			/*var data={"fl": "FLORIDA\n\nConcrete Admixtures (CADD)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us\n\nHot-Mix Asphalt Crack Sealers (HMA CS)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us\n\nPavement Marking Materials (PMM)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us\n\nPortland Cement Concrete Joint Sealants (PCC JS)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us\n\nPortable Changeable Message Signs/Flashing Arrow Panels (PCMS/FAP)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us\n\nProtective Coatings - Structural Steel Coatings and Concrete Coating Systems (SSC/CCS)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us\n\nRaised Pavement Markers/Snowplowable Raised Pavement Markers (RPM/SRPM)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us\n\nRapid Set Concrete Patch Materials (RSCPM)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us\n\nSign Sheeting Materials/Roll Up Signs (SSM/RUP)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us\n\nTemporary Traffic Control Devices (TTCD)\nKaren Byram, Product Evaluation Administrator, 850-414-4353, karen.byram@dot.state.fl.us"};
-			document.getElementById("txtDOT").innerHTML=data.fl;
-					
-			alert(data.length);*/
-			
-           		
-		}
-		
-		
+		}	
 		
 		//Mouse Click Event
 		
@@ -88,7 +84,7 @@ lib.properties = {
 		
 		function fl_MouseClickHandler_1()
 		{
-			fl_TF_1.x = 15;
+				fl_TF_1.x = 15;
 		        fl_TF_1.y = 400;
 		        fl_TF_1.color = "#000000";
 		        fl_TF_1.font = "11px Arial";
@@ -104,6 +100,7 @@ lib.properties = {
 		
 		
 	}
+	
 
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
