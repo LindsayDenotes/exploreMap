@@ -17,8 +17,24 @@ lib.properties = {
 
 	// timeline functions:
 	this.frame_0 = function() {
+	
+	this.fl.addEventListener("click", fl_MouseClickHandler_18.bind(this));
+	var fl_TF_18 = new createjs.Text();
+	fl_TextToDisplay_18 = "";
+	
+	function fl_MouseClickHandler_18() 
+	{
+		fl_TF_18.x = 15;
+		fl_TF_18.y = 400;
+		fl_TF_18.color = "#000000";
+		fl_TF_18.font = "11px Arial";
+		fl_TF_18.text = fl_TextToDisplay_18;
+		this.addChild(fl_TF_18);
+	
+		this.flSelected.visible = true;
+	}			
 		
-			
+		
 		$(document).ready(function(){
 			
 		var items = []; //states instead of items didn't make a difference
@@ -37,43 +53,31 @@ lib.properties = {
 						items.push( "<li id=state'" + key + "'>" + JSON.stringify(val.state) + "<li id=contacts'>" + JSON.stringify(val.contacts) + "'</li></li>");
 						console.log( "<li id=state'" + key + "'>" + JSON.stringify(val.state) + "<li id=contacts'>" + JSON.stringify(val.contacts) + "'</li></li>");
 					
-					html: items.join( "" )
-						}).appendTo( "#txtDOT" );//"txtDOT" is the name of my text div in the HTML file. 
-			});
-		});
-				
-				// Mouse Click Event not working for FL. 7/7/14 I commented out the original FL mouse click handler.Read more about this on function.		
-				$("li").on("click", function (e) {//Using e is just a short for event. You can pass any variable name you desire.
-				var $e = $(e.target);
-				});
 				
 				//add all <li> items to a not displayed <ul> element
 				$( "<ul/>", {		
-				 //"id": "txtDOT",
-				 "class": "my-new-list",//how does class correspond with my HTML file? this class is display none, so do I need to put a class tag anywhere in my html?					
+				//"id": "txtDOT",
+				"class": "my-new-list",//how does class correspond with my HTML file? this class is display none, so do I need to put a class tag anywhere in my html?		
+				html: items.join( "" )
+				}).appendTo( "#txtDOT" );//"txtDOT" is the name of my text div in the HTML file. 
+			});
+		});	
+				
 		
+		// Mouse Click Event not working for FL. 7/7/14 I commented out the original FL mouse click handler.Read more about this on function.		
+		/*$("li").On("click", function (e) {//Using e is just a short for event. You can pass any variable name you desire.
+		var $e = $(e.target);
+		});*/
+			
 		
+	});
 		
-	});	
+	
 		
 		//Mouse Click Event
 		 
 		
-		this.fl.addEventListener("click", fl_MouseClickHandler_18.bind(this));
-		var fl_TF_18 = new createjs.Text();
-		fl_TextToDisplay_18 = "";
 		
-		function fl_MouseClickHandler_18() 
-		{
-			fl_TF_18.x = 15;
-			fl_TF_18.y = 400;
-			fl_TF_18.color = "#000000";
-			fl_TF_18.font = "11px Arial";
-			fl_TF_18.text = fl_TextToDisplay_18;
-			this.addChild(fl_TF_18);
-		
-			this.flSelected.visible = true;
-		}	
 		
 		//Mouse Click Event
 		
@@ -95,6 +99,8 @@ lib.properties = {
 				
 				var x=document.getElementsByName("txtDOT")[0]="NEW HAMPSHIRE DEPARTMENT OF TRANSPORTATION\n\nConcrete Admixtures (CADD) \nBill Real, Research Supervisor/QPL, 603-271-3151, wreal@dot.state.nh.us \n\nConcrete Curing Compounds (CCC) \nBill Real, Research Supervisor/QPL, 603-271-3151, wreal@dot.state.nh.us \n\nErosion Control Products (ECP) \nBill Real, Research Supervisor/QPL, 603-271-3151, wreal@dot.state.nh.us \n\nGeotextiles and Reinforced Geosynthetics (GTX/REGEO) \nBill Real, Research Supervisor/QPL, 603-271-3151, wreal@dot.state.nh.us \n\nHigh Density Polyethylene Plastic Pipe (HDPE), Polypropylene Pipe (PPP), Polyvinyl Chloride Drainage Pipe (PVC) \nBill Real, Research Supervisor/QPL, 603-271-3151, wreal@dot.state.nh.us \n\nHot-Mix Asphalt Crack Sealers (HMA-CS) and Portland Cement Concrete Joint Sealers (PCC JS) \nBill Real, Research Supervisor/QPL, 603-271-3151, wreal@dot.state.nh.us \n\nPavement Marking Materials (PMM) \nTobey Reynolds, Assistant Traffic Engineer, 603-271-2291, treynolds@dot.state.nh.us \n\nStructural Steel Coatings and Concrete Coating Systems (SSC/CCS) \nSSC - Jerry Zoller, 603-271-2731, jzoller@dot.state.nh.us\nCCS - Bill Real, 603-271-3151, wreal@dot.state.nh.us \n\nRapid Set Concrete Patching Materials (RSCP) \nBill Real, Research Supervisor/QPL, 603-271-3151, wreal@dot.state.nh.us \n\nReinforcing Steel/Welded Wire Reinforcement (REBAR/WWR) \nBill Real, Research Supervisor/QPL, 603-271-3151, wreal@dot.state.nh.us \n\nSign Sheeting Materials/Roll Up Signs (SSM/RUP) \nTobey Reynolds, Assistant Traffic Engineer, 603-271-2291, treynolds@dot.state.nh.us";
 			  alert(x);
+		
+		
 		}
 		
 		
