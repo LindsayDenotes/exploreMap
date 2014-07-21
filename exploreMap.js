@@ -17,58 +17,69 @@ lib.properties = {
 
 	// timeline functions:
 	this.frame_0 = function() {
+	/*
+	this.fl.addEventListener("click", fl_MouseClickHandler_18.bind(this));
 	
+	function fl_MouseClickHandler_18() 
+	{
+		
+	
+	}
+	*/
 	this.fl.addEventListener("click", fl_MouseClickHandler_18.bind(this));
 	var fl_TF_18 = new createjs.Text();
 	fl_TextToDisplay_18 = "";
 	
 	function fl_MouseClickHandler_18() 
 	{
-		fl_TF_18.x = 15;
-		fl_TF_18.y = 400;
-		fl_TF_18.color = "#000000";
-		fl_TF_18.font = "11px Arial";
-		fl_TF_18.text = fl_TextToDisplay_18;
-		this.addChild(fl_TF_18);
-	
-		this.flSelected.visible = true;
-	}			
-		
-		
-		$(document).ready(function(){
+	fl_TF_18.x = 15;
+	fl_TF_18.y = 400;
+	fl_TF_18.color = "#000000";
+	fl_TF_18.font = "11px Arial";
+	fl_TF_18.text = fl_TextToDisplay_18;
+	this.addChild(fl_TF_18);
+	this.flSelected.visible = true;
+	}
+
+	$(document).ready(function(){
 			
-		var items = {}; //states instead of items didn't make a difference
+		var items = []; //states instead of items didn't make a difference
 	
-		  $.getJSON("stateInfoList.json", function( result ) {  //this is the get resource function
-			console.log(result);//when json was array, the returned jquery object was data instead of result. data may refer just to an array.
-			// Note that "data" is the whole JSON (or jQ) object. still true for result?
+		  $.getJSON("stateInfoList.json", function( data ) {  //this is the get resource function
+			console.log(data);//when json was array, the returned jquery object was data
+			// Note that "data" is the whole JSON (or jQ) object. 
 			// Since you have nested objects in it, you will need to target each instead in for loop below
-				$.each(result, function( key, val ) {//data was the object containing DOM elements (<divs>). now, does result hold the DOM elements? should I use jQuery() instead of each()?
-				    $.each(val, function(key, val){
-        			console.log(key, val); 
-					});//key is jsons nh, val is whats inside jsons{ }, members are key, state and contacts. Problem: only returning first property nh, not fl
+				$.each(data.items, function( key, val ) {//data is the object containing DOM elements (<p>s)//each() Iterate over a jQuery object, executing a function for each matched element.
+				 	console.log( key, val ); 
+					//key is jsons index, val is whats inside jsons{ }, members are state,contacts. 
 				 
 				  //.push() is a function that adds an element on the end of the ARRAY and expands the array respectively. 		
-				  items.push( "<p key='" + key + "'>" + val.state + "<div id=contacts'>" + val.contacts + "'</div></div>");
-				  console.log( "<p key='" + key + "'>" + val.state + "<div id=contacts'>" + val.contacts + "'</div></div>");
+				  items.push( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
+				  console.log( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
 					  
-					  //add all <div> items to a not displayed <ul> element
-					  $( "<ul/>", {		
-					  //"id": "txtDOT",
-					  "class": "my-new-list",//now shows up multiple times under #txtDOT. this class should be display none, but do I need to put a class tag anywhere in my html?		
-					  html: items.join( "" ) //uh oh, this joins div elements back into a string.//Later,put statebutton ID in ("")?//
-					  //join method only works with arrays, not jquery objects that act similar to arrays. 					  
-					  }).appendTo( "#txtDOT" );//"txtDOT" is the name of my div in the HTML file. 
+					  //add all <p> items to a not displayed <ul> element
+					  $( "<ul/>", {						
+					  "class": "my-new-list",		
+					  html: items.join( "" ) //this joins all or selected element(s) back into a ~nonformatted~ string.//Put statebutton ID in ("")?//
+					  //join method only works with arrays, not jquery objects that act similar to arrays. 
+					  }).appendTo( "#txtDOT" );//"class": "txtDOT", 
 				});//end function getJSON from stateInfoList, i think, 7/15/14
-		
+				
+				/*$( “li” ).On( “click”, function(e) {
+				var $e=$(e.target);
+				 /* …*/ //} );
+				 
+ 
+			   // Mouse Click Event not working for FL. 7/7/14 
+				
+						
+				/*$("li").On("click", function (e) {//Using e is just a short for event. You can pass any variable name you desire.
+				var $e = $(e.target);
+				clicked.css('background', 'red');
+				});*/
 		  });	
 				//str.replace(/(?:\r\n|\r|\n)/g, '<br />'); This would only work if you put back in JSON.stringify on items.push line
-		
-		// Mouse Click Event not working for FL. 7/7/14 I commented out the original FL mouse click handler.Read more about this on function.		
-		/*$("li").On("click", function (e) {//Using e is just a short for event. You can pass any variable name you desire.
-		var $e = $(e.target);
-		});*/
-			
+				
 		
 	});
 		
@@ -116,7 +127,9 @@ lib.properties = {
 	
 	// blueMap.ai
 	
-	(lib.nhSelected = function() {
+
+//New Hampshire drop shadow shape	
+(lib.nhSelected = function() {
 	this.initialize();
 
 	// buttonNh ~aka Layer 1
@@ -133,6 +146,7 @@ lib.properties = {
 p.nominalBounds = new cjs.Rectangle(3.3,-4.1,22,42);
 
 
+//New Hampshire plain shape
 (lib.nh = function() {
 	this.initialize();
 
@@ -164,8 +178,9 @@ p.nominalBounds = new cjs.Rectangle(3.3,-4.1,22,42);
 	this.addChild(this.shape_5,this.shape_4,this.shape_3,this.shape_2,this.shape_1,this.shape);
 }).prototype = p = new cjs.Container();
 p.nominalBounds = new cjs.Rectangle(-1,-1,18.5,37.1);
-	
-	
+
+
+	//New Hampshire "button helper"	
 	this.nh = new lib.nh();
 	this.nh.setTransform(522.4,121.9,0.973,0.997,0,0,0,8.1,17.4);
 	new cjs.ButtonHelper(this.nh, 0, 1, 1);
@@ -176,22 +191,10 @@ p.nominalBounds = new cjs.Rectangle(-1,-1,18.5,37.1);
 	this.nhSelected.filters = [new cjs.ColorFilter(0.7, 0.7, 0.7, 1, 0, 0, 0, 0)];
 	this.nhSelected.cache(1,-6,26,46);
 	new cjs.ButtonHelper(this.nhSelected, 0, 1, 1);
-
-	(lib.nh2 = function() {
-	this.initialize();
-
-	// Layer 1
-	this.nh = new lib.nh();
-	this.nh.setTransform(7.9,17.4,0.973,0.997,0,0,0,8.1,17.4);
-	new cjs.ButtonHelper(this.nh, 0, 1, 1);
-
-	this.addChild(this.nh);
-}).prototype = p = new cjs.Container();
-p.nominalBounds = new cjs.Rectangle(-1,-1,18,37);
 	
-	
-	
-	(lib.flSelected = function() {
+
+//Florida drop shadow shape
+(lib.flSelected = function() {
 	this.initialize();
 
 	// Layer 1
@@ -207,7 +210,7 @@ p.nominalBounds = new cjs.Rectangle(-1,-1,18,37);
 }).prototype = p = new cjs.Container();
 p.nominalBounds = new cjs.Rectangle(-1,-1,95.4,71.8);
 
-
+//Florida plain shape
 (lib.fl = function() {
 	this.initialize();
 
@@ -239,10 +242,8 @@ p.nominalBounds = new cjs.Rectangle(-1,-1,95.4,71.8);
 	this.addChild(this.shape_5,this.shape_4,this.shape_3,this.shape_2,this.shape_1,this.shape);
 }).prototype = p = new cjs.Container();
 p.nominalBounds = new cjs.Rectangle(-1,-1,95.4,71.8);
-
 	
-	
-	
+	//Florida "button helper"	
 	this.fl = new lib.fl();
 	this.fl.setTransform(435.2,342,1,1,0,0,0,46.7,34.9);
 	new cjs.ButtonHelper(this.fl, 0, 1, 1);
@@ -255,14 +256,11 @@ p.nominalBounds = new cjs.Rectangle(-1,-1,95.4,71.8);
 	new cjs.ButtonHelper(this.flSelected, 0, 1, 1);
 
 	
+	//Function that binds arguments to state shapes
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.flSelected},{t:this.fl},{t:this.nhSelected},{t:this.nh}]}).wait(1));
 
-	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f().s("#1A171B").ss(0.5).p("AJemeIADgeIAJAAIAEgBIAIgIIABgIIgBgFIAMgRIAVgJIAYgGIAYgVIAKgEIAPgOIAEgMIACgBIAGABIAGgJIAIgIIADABIAHAEIAIgEIABgDIANgKIAJgEIAQgBIASgdIAOgIIADgQIgBgKIACgIIAAgDIAcgFIgCAFIAcgDIALgDIAFACIEPgsIECgxIAEAFIACAEIAHAEIAFACIAEAGIAEAEIAFAMIgCAEIABABIgEAAIgBgEIgIACIgFAAIgFgCIgEABIADAFIgBADIgYALIgPAOIgPACIgDAKIAAADIADABIAFgBIARgIIAQgEIAJgGIAPABIACACIgCAJIACAEIAEADIAGgCIACgFIAJgLIAIAAIAFAMIACAUIACAGIAAAEIgNAKIgFANIgKAIIgHADIgIAFIgRgBIgGgCIgCACIgCAAIgDgIIAAgEIgDgDIgEgBIgEADIAEAPIgEAFIgCgCIAGAHIAHABIAHAIIgFAJIADAEIgUAYIgGABIgLgEIgIAAIgBAEIAHAFIAVgBIAOgEIATgJIACgHIAFACIAHAGIgHAQIgPARIgSADIgIAEIgVADIgRAdIgIABIAAAEIABABIgUANIgLAOIgLAZIgGAeIgGAIIgKAEIgqAIIgEAEIiLhfIh1APIgDgQIgUgQIgKAFIgEgFIACgEIgBgEIiIAQIgEAAIgEAEIgbAMIgBAGIgJAAIgeAPgA3iL5IAAgT");
-	this.shape_1.setTransform(354.6,300.1);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_1},{t:this.flSelected},{t:this.fl},{t:this.nhSelected},{t:this.nh}]}).wait(1));
-
-	// Header
+	
+// Header
 	this.text = new cjs.Text("", "12px 'Verdana'");
 	this.text.textAlign = "center";
 	this.text.lineHeight = 14;
@@ -287,6 +285,28 @@ p.nominalBounds = new cjs.Rectangle(-1,-1,95.4,71.8);
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(299,406.2,609.4,523.4);
 
+/* not being used in exploreMap. There is one last crucial function at the bottom of this js file.
+
+New Hamphire second function and button helper superfluous
+(lib.nh2 = function() {
+	this.initialize();
+	
+	// NH unneeded "button helper"
+	this.nh = new lib.nh();
+	this.nh.setTransform(7.9,17.4,0.973,0.997,0,0,0,8.1,17.4);
+	new cjs.ButtonHelper(this.nh, 0, 1, 1);
+
+	this.addChild(this.nh);
+}).prototype = p = new cjs.Container();
+p.nominalBounds = new cjs.Rectangle(-1,-1,18,37);
+
+NC extra shape outline
+	this.shape_1 = new cjs.Shape();
+	this.shape_1.graphics.f().s("#1A171B").ss(0.5).p("AJemeIADgeIAJAAIAEgBIAIgIIABgIIgBgFIAMgRIAVgJIAYgGIAYgVIAKgEIAPgOIAEgMIACgBIAGABIAGgJIAIgIIADABIAHAEIAIgEIABgDIANgKIAJgEIAQgBIASgdIAOgIIADgQIgBgKIACgIIAAgDIAcgFIgCAFIAcgDIALgDIAFACIEPgsIECgxIAEAFIACAEIAHAEIAFACIAEAGIAEAEIAFAMIgCAEIABABIgEAAIgBgEIgIACIgFAAIgFgCIgEABIADAFIgBADIgYALIgPAOIgPACIgDAKIAAADIADABIAFgBIARgIIAQgEIAJgGIAPABIACACIgCAJIACAEIAEADIAGgCIACgFIAJgLIAIAAIAFAMIACAUIACAGIAAAEIgNAKIgFANIgKAIIgHADIgIAFIgRgBIgGgCIgCACIgCAAIgDgIIAAgEIgDgDIgEgBIgEADIAEAPIgEAFIgCgCIAGAHIAHABIAHAIIgFAJIADAEIgUAYIgGABIgLgEIgIAAIgBAEIAHAFIAVgBIAOgEIATgJIACgHIAFACIAHAGIgHAQIgPARIgSADIgIAEIgVADIgRAdIgIABIAAAEIABABIgUANIgLAOIgLAZIgGAeIgGAIIgKAEIgqAIIgEAEIiLhfIh1APIgDgQIgUgQIgKAFIgEgFIACgEIgBgEIiIAQIgEAAIgEAEIgbAMIgBAGIgJAAIgeAPgA3iL5IAAgT");
+	this.shape_1.setTransform(354.6,300.1);
+	
+	i removed {t:this.shape_1}, from [ ] in function 
+	
 
 // symbols:
 (lib.wySelected = function() {
@@ -2903,6 +2923,7 @@ p.nominalBounds = new cjs.Rectangle(-1,-1,39.5,61.6);
 	this.addChild(this.maSelected,this.shape_3,this.shape_2,this.shape_1,this.shape);
 }).prototype = p = new cjs.Container();
 p.nominalBounds = new cjs.Rectangle(-1,-1,36.1,19.4);
+*/
 
 })(lib = lib||{}, images = images||{}, createjs = createjs||{});
 var lib, images, createjs;
