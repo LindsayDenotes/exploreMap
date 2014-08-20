@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -8,13 +8,213 @@
     .my-new-list { display: none; }
     #txtDOT { display: block; } probably won't need or if so, it may go into <div> tag
   </style-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	        <script>
+
+            function init(){
+                var c = document.getElementById("canvas");
+                var ctx = c.getContext("2d");
+
+                ctx.fillStyle="rgb(62,122,172)";
+                ctx.lineStyle="rgb(26,23,27)";
+                ctx.lineWidth=0.5;
+
+                ctx.beginPath();
+                ctx.moveTo(88,82);
+                ctx.lineTo(60,85);
+                ctx.lineTo(60,86);
+                ctx.lineTo(60,86);
+                ctx.lineTo(59,86);
+                ctx.lineTo(59,87);
+                ctx.lineTo(60,88);
+                ctx.lineTo(61,89);
+                ctx.lineTo(61,89);
+                ctx.lineTo(62,90);
+                ctx.lineTo(62,90);
+                ctx.lineTo(62,91);
+                ctx.lineTo(62,92);
+                ctx.lineTo(62,92);
+                ctx.lineTo(62,92);
+                ctx.lineTo(62,92);
+                ctx.lineTo(62,93);
+                ctx.lineTo(62,94);
+                ctx.lineTo(62,94);
+                ctx.lineTo(64,93);
+                ctx.lineTo(64,93);
+                ctx.lineTo(65,92);
+                ctx.lineTo(65,91);
+                ctx.lineTo(66,91);
+                ctx.lineTo(66,91);
+                ctx.lineTo(67,91);
+                ctx.lineTo(67,91);
+                ctx.lineTo(67,92);
+                ctx.lineTo(66,92);
+                ctx.lineTo(66,93);
+                ctx.lineTo(67,92);
+                ctx.lineTo(68,92);
+                ctx.lineTo(74,90);
+                ctx.lineTo(74,90);
+                ctx.lineTo(74,91);
+                ctx.lineTo(73,92);
+                ctx.lineTo(74,92);
+                ctx.lineTo(76,92);
+                ctx.lineTo(78,93);
+                ctx.lineTo(80,94);
+                ctx.lineTo(81,94);
+                ctx.lineTo(81,93);
+                ctx.lineTo(81,93);
+                ctx.lineTo(82,94);
+                ctx.lineTo(83,94);
+                ctx.lineTo(84,94);
+                ctx.lineTo(84,94);
+                ctx.lineTo(83,95);
+                ctx.lineTo(83,95);
+                ctx.lineTo(86,97);
+                ctx.lineTo(86,98);
+                ctx.lineTo(86,99);
+                ctx.lineTo(86,99);
+                ctx.lineTo(86,99);
+                ctx.lineTo(85,98);
+                ctx.lineTo(85,99);
+                ctx.lineTo(85,99);
+                ctx.lineTo(86,100);
+                ctx.lineTo(90,99);
+                ctx.lineTo(90,98);
+                ctx.lineTo(92,98);
+                ctx.lineTo(95,95);
+                ctx.lineTo(97,95);
+                ctx.lineTo(97,95);
+                ctx.lineTo(97,94);
+                ctx.lineTo(97,93);
+                ctx.lineTo(101,93);
+                ctx.lineTo(106,95);
+                ctx.lineTo(106,96);
+                ctx.lineTo(107,97);
+                ctx.lineTo(108,99);
+                ctx.lineTo(112,101);
+                ctx.lineTo(112,102);
+                ctx.lineTo(113,103);
+                ctx.lineTo(115,102);
+                ctx.lineTo(117,105);
+                ctx.lineTo(118,106);
+                ctx.lineTo(118,106);
+                ctx.lineTo(118,109);
+                ctx.lineTo(118,112);
+                ctx.lineTo(117,116);
+                ctx.lineTo(117,118);
+                ctx.lineTo(118,119);
+                ctx.lineTo(120,121);
+                ctx.lineTo(120,119);
+                ctx.lineTo(120,119);
+                ctx.lineTo(119,117);
+                ctx.lineTo(119,117);
+                ctx.lineTo(120,117);
+                ctx.lineTo(121,118);
+                ctx.lineTo(122,118);
+                ctx.lineTo(122,117);
+                ctx.lineTo(122,117);
+                ctx.lineTo(123,118);
+                ctx.lineTo(123,118);
+                ctx.lineTo(122,119);
+                ctx.lineTo(122,120);
+                ctx.lineTo(121,122);
+                ctx.lineTo(120,123);
+                ctx.lineTo(120,124);
+                ctx.lineTo(121,124);
+                ctx.lineTo(122,125);
+                ctx.lineTo(124,129);
+                ctx.lineTo(127,131);
+                ctx.lineTo(127,131);
+                ctx.lineTo(127,130);
+                ctx.lineTo(128,130);
+                ctx.lineTo(128,131);
+                ctx.lineTo(128,132);
+                ctx.lineTo(129,134);
+                ctx.lineTo(130,135);
+                ctx.lineTo(132,135);
+                ctx.lineTo(134,141);
+                ctx.lineTo(134,141);
+                ctx.lineTo(137,142);
+                ctx.lineTo(138,142);
+                ctx.lineTo(141,146);
+                ctx.lineTo(142,147);
+                ctx.lineTo(143,147);
+                ctx.lineTo(144,147);
+                ctx.lineTo(144,148);
+                ctx.lineTo(143,148);
+                ctx.lineTo(143,148);
+                ctx.lineTo(142,148);
+                ctx.lineTo(142,148);
+                ctx.lineTo(142,149);
+                ctx.lineTo(142,149);
+                ctx.lineTo(144,150);
+                ctx.lineTo(145,149);
+                ctx.lineTo(146,149);
+                ctx.lineTo(150,147);
+                ctx.lineTo(151,145);
+                ctx.lineTo(151,145);
+                ctx.lineTo(151,143);
+                ctx.lineTo(151,142);
+                ctx.lineTo(152,139);
+                ctx.lineTo(153,140);
+                ctx.lineTo(152,135);
+                ctx.lineTo(152,133);
+                ctx.lineTo(152,129);
+                ctx.lineTo(151,126);
+                ctx.lineTo(150,124);
+                ctx.lineTo(147,120);
+                ctx.lineTo(145,116);
+                ctx.lineTo(143,113);
+                ctx.lineTo(143,112);
+                ctx.lineTo(143,112);
+                ctx.lineTo(142,110);
+                ctx.lineTo(142,109);
+                ctx.lineTo(143,108);
+                ctx.lineTo(143,107);
+                ctx.lineTo(140,103);
+                ctx.lineTo(138,102);
+                ctx.lineTo(137,101);
+                ctx.lineTo(136,100);
+                ctx.lineTo(134,98);
+                ctx.lineTo(131,93);
+                ctx.lineTo(131,90);
+                ctx.lineTo(129,86);
+                ctx.lineTo(129,85);
+                ctx.lineTo(128,85);
+                ctx.lineTo(128,84);
+                ctx.lineTo(128,82);
+                ctx.lineTo(127,81);
+                ctx.lineTo(126,81);
+                ctx.lineTo(124,81);
+                ctx.lineTo(122,80);
+                ctx.lineTo(121,80);
+                ctx.lineTo(121,81);
+                ctx.lineTo(121,82);
+                ctx.lineTo(122,85);
+                ctx.lineTo(122,86);
+                ctx.lineTo(120,86);
+                ctx.lineTo(120,85);
+                ctx.lineTo(119,84);
+                ctx.lineTo(90,86);
+                ctx.lineTo(89,85);
+                ctx.lineTo(89,84);
+                ctx.lineTo(88,83);
+                ctx.lineTo(88,82);
+                ctx.fill();
+                ctx.stroke();
+
+
+
+            }
+        </script>
+
 </head>
 
-<body onload="init();" style="background-color:#FFFFFF">
-	<canvas id="canvas" width="600" height="500" style="background-color:#FFFFFF">
-    </canvas>
-    <br/>
-    <div id="txtDOT">
+<body onload="init();">
+<canvas id="canvas" width="600" height="500" style="background-color:#FFFFFF"></canvas>
+
+<div id="txtDOT">
       <!--legend>State Information</legend-->
       
     		<p>
@@ -26,41 +226,7 @@
 		      	<label for="contacts" title="Contacts">Contacts</label>
 		        <id="contacts" name="contacts" value=" "/>
             </p>
-            
-     </div>
-	
-     <!--form>
-       <input type="textarea" rows="25" cols="50" wrap="hard" id="txtDOT" value="test"/>  
-    </form>
-    </div-->
-    
-   
 
-  
 
-<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
-<script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
-<script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!--script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script-->
-<script src="exploreMap.js"></script>
-
-<script>
-var canvas, stage, exportRoot;
-
-function init() {
-	canvas = document.getElementById("canvas");
-	exportRoot = new lib.exploreMap();
-
-	stage = new createjs.Stage(canvas);
-	stage.addChild(exportRoot);
-	stage.update();
-
-	createjs.Ticker.setFPS(lib.properties.fps);
-	createjs.Ticker.addEventListener("tick", stage);
-
-}
-	 
-</script>
 </body>
 </html>
