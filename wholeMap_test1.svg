@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Generator: Adobe Illustrator 16.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<div class="svg-container">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="546.411px" height="328.782px" viewBox="0 0 546.411 328.782" style="enable-background:new 0 0 546.411 328.782;"
-	 xml:space="preserve">
+	 xml:space="preserve" class="svg-content">
 <style type="text/css">
 <![CDATA[
 @font-face{font-family:'ArialMT';src:url("data:;base64,\
@@ -6517,6 +6518,9 @@ AlECUgJUAlUCVgJYAlkCWgJbAlwCXQJeAl8CYgJjAmQCZgJoAmkCagJrAmwCbQJuAnECdAJ1AnYC\
 hAKGAoo=")}
 ]]>
 </style>
+
+<!--svg class="svgShapes"></svg-->
+
 <g id="Map">
 	<g id="Oklahoma">
 		<polygon id="OK_Outline" style="fill:#3E7AAC;stroke:#1A171B;stroke-width:0.5;stroke-miterlimit:10;" points="298.745,184.986 
@@ -6720,7 +6724,9 @@ hAKGAoo=")}
 		
 			<text id="NameRegion45" transform="matrix(1.0127 0 0 1 476.1387 94.3057)" style="fill:#3E7AAC;stroke:#1A171B;stroke-width:0.5;stroke-miterlimit:10; font-family:'ArialMT'; font-size:6.19;">NY</text>
 	</g>
-	<polygon id="FL_outline" style="fill:#3E7AAC;stroke:#1A171B;stroke-width:0.5;stroke-miterlimit:10;" points="406.029,254.818 
+	
+	<g id="fl">
+		<polygon id="flPolygon" style="fill:#3E7AAC;stroke:#1A171B;stroke-width:0.5;stroke-miterlimit:10;" points="406.029,254.818 
 		377.542,257.612 377.542,258.111 377.643,258.41 377.34,258.71 377.44,259.607 378.248,260.804 378.855,261.303 379.158,261.303 
 		379.966,262.002 380.168,262.4 379.663,263.598 379.663,263.896 380.27,264.196 380.471,264.496 380.471,264.795 379.866,265.293 
 		379.866,266.092 380.168,266.291 381.784,265.791 382.289,265.393 382.896,263.896 383.099,263.398 383.805,263.598 
@@ -6746,79 +6752,12 @@ hAKGAoo=")}
 		445.227,253.024 444.317,253.321 442.397,253.223 440.277,252.225 439.469,252.823 439.165,253.321 439.063,254.319 
 		439.974,257.113 439.671,258.609 438.054,258.41 437.65,257.811 437.246,256.415 407.748,258.21 407.04,257.213 407.142,256.415 
 		406.131,255.417 	"/>
-	<g id="city44.8.Tallahassee" style="display:none;">
-		<g style="display:inline;">
-			<path style="fill:#0A71B3;" d="M431.571,258.222c0.525,0,1.052-0.526,1.052-1.052c0-0.526-0.526-1.052-1.052-1.052
-				c-0.526,0-1.052,0.525-1.052,1.052C430.52,257.695,431.045,258.222,431.571,258.222z"/>
-			<path style="fill:#0A71B3;" d="M431.571,257.17"/>
-		</g>
+	
 		
-			<text transform="matrix(1 0 0 1 417.1523 262.1084)" style="display:inline;fill:#0A71B3; font-family:'ArialMT'; font-size:4.8936;">Tallahassee</text>
-	</g>
-	<g id="city44.7.Jacksonville" style="display:none;">
-		<g style="display:inline;">
-			<path style="fill:#0A71B3;" d="M462.485,255.486c0.525,0,1.051-0.525,1.051-1.051c0-0.526-0.525-1.052-1.051-1.052
-				c-0.526,0-1.052,0.525-1.052,1.052C461.434,254.961,461.959,255.486,462.485,255.486z"/>
-			<path style="fill:#0A71B3;" d="M462.485,254.436"/>
-		</g>
-		
-			<text transform="matrix(1 0 0 1 451.3965 259.6934)" style="display:inline;fill:#0A71B3; font-family:'ArialMT'; font-size:4.8936;">Jacksonville</text>
-	</g>
-	<g id="city44.6.Orlando" style="display:none;">
-		<g style="display:inline;">
-			<path style="fill:#0A71B3;" d="M468.689,278.518c0.526,0,1.052-0.526,1.052-1.052c0-0.526-0.525-1.052-1.052-1.052
-				c-0.525,0-1.052,0.525-1.052,1.052C467.638,277.991,468.164,278.518,468.689,278.518z"/>
-			<path style="fill:#0A71B3;" d="M468.689,277.466"/>
-		</g>
-		
-			<text transform="matrix(1 0 0 1 464.9521 275.8604)" style="display:inline;fill:#0A71B3; font-family:'ArialMT'; font-size:4.8936;">Orlando</text>
-	</g>
-	<g id="city44.5.Tampa" style="display:none;">
-		<g style="display:inline;">
-			<path style="fill:#0A71B3;" d="M457.544,287.771c0.525,0,1.051-0.525,1.051-1.052c0-0.525-0.525-1.051-1.051-1.051
-				c-0.526,0-1.052,0.525-1.052,1.051C456.492,287.246,457.018,287.771,457.544,287.771z"/>
-			<path style="fill:#0A71B3;" d="M457.544,286.72"/>
-		</g>
-		
-			<text transform="matrix(1 0 0 1 450.0117 284.1562)" style="display:inline;fill:#0A71B3; font-family:'ArialMT'; font-size:4.8936;">Tampa</text>
-	</g>
-	<g id="city44.4.St._Petersburg" style="display:none;">
-		<g>
-			<path style="display:inline;fill:#0A71B3;" d="M454.599,290.188c0.525,0,1.052-0.525,1.052-1.051
-				c0-0.526-0.526-1.052-1.052-1.052c-0.526,0-1.052,0.525-1.052,1.052C453.547,289.662,454.072,290.188,454.599,290.188z"/>
-			<path style="display:inline;fill:#0A71B3;" d="M454.599,289.137"/>
-		</g>
-		<text transform="matrix(1 0 0 1 435.6777 294.9004)" style="fill:#0A71B3; font-family:'ArialMT'; font-size:4.8936;">St. Petersburg</text>
-	</g>
-	<g id="city44.3.Key_West" style="display:none;">
-		<g style="display:inline;">
-			<path style="fill:#0A71B3;" d="M469.847,328.782c0.526,0,1.052-0.525,1.052-1.052c0-0.525-0.525-1.052-1.052-1.052
-				c-0.525,0-1.052,0.526-1.052,1.052C468.795,328.257,469.321,328.782,469.847,328.782z"/>
-			<path style="fill:#0A71B3;" d="M469.847,327.73"/>
-		</g>
-		
-			<text transform="matrix(1 0 0 1 449.2402 324.9082)" style="display:inline;fill:#0A71B3; font-family:'ArialMT'; font-size:4.8936;">Key West</text>
-	</g>
-	<g id="city44.2.W._PalmBeach" style="display:none;">
-		<g style="display:inline;">
-			<path style="fill:#0A71B3;" d="M487.196,298.863c0.526,0,1.052-0.525,1.052-1.052c0-0.525-0.525-1.052-1.052-1.052
-				c-0.525,0-1.052,0.526-1.052,1.052C486.145,298.338,486.671,298.863,487.196,298.863z"/>
-			<path style="fill:#0A71B3;" d="M487.196,297.812"/>
-		</g>
-		
-			<text transform="matrix(1 0 0 1 470.8115 295.7793)" style="display:inline;fill:#0A71B3; font-family:'ArialMT'; font-size:4.8936;">W. PalmBeach</text>
-	</g>
-	<g id="city44.1.Miami" style="display:none;">
-		<g style="display:inline;">
-			<path style="fill:#0A71B3;" d="M487.513,314.85c0.526,0,1.052-0.526,1.052-1.052c0-0.526-0.525-1.052-1.052-1.052
-				c-0.525,0-1.052,0.525-1.052,1.052C486.461,314.323,486.987,314.85,487.513,314.85z"/>
-			<path style="fill:#0A71B3;" d="M487.513,313.798"/>
-		</g>
-		
-			<text transform="matrix(1 0 0 1 480.6035 311.7471)" style="display:inline;fill:#0A71B3; font-family:'ArialMT'; font-size:4.8936;">Miami</text>
+		<text id="flLetters" transform="matrix(1.0127 0 0 1 443.8125 272.377)" style="fill:#3E7AAC;stroke:#1A171B;stroke-width:0.5;stroke-miterlimit:10; font-family:'ArialMT'; font-size:6.19;">FL</text>
 	</g>
 	
-		<text id="NameRegion44" transform="matrix(1.0127 0 0 1 443.8125 272.377)" style="fill:#3E7AAC;stroke:#1A171B;stroke-width:0.5;stroke-miterlimit:10; font-family:'ArialMT'; font-size:6.19;">FL</text>
+
 	<g id="New_Mexico">
 		<polygon id="NM_Outline" style="fill:#3E7AAC;stroke:#1A171B;stroke-width:0.5;stroke-miterlimit:10;" points="151.455,176.008 
 			141.15,247.935 141.15,248.036 150.545,249.034 151.252,243.446 169.032,245.641 168.83,245.441 168.426,244.444 168.83,243.646 
@@ -8622,3 +8561,4 @@ hAKGAoo=")}
 <g id="Layer_1">
 </g>
 </svg>
+</div>
