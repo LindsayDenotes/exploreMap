@@ -20,21 +20,19 @@ $(document).ready(function(){
        //var getState = "nh";
 
 
-		var items = [];//**use object instead of array? http://www.mkyong.com/javascript/how-to-access-json-object-in-javascript
+		var getVal = {};//http://www.mkyong.com/javascript/how-to-access-json-object-in-javascript
 
 		  $.getJSON("stateInfoList.json", function( data ) {  //get resource function
-			console.log(data);//Since you have array in your JSON, you need to target each instead in for loop below
+			console.log(data);//
 
-			    //var getState = abv
-
-			    $.each(data.items, function( key, val ) { //each() Iterate over a jQuery object, executing a function for **each matched element.
+			      $.each(data, function( key, val ) { //each() Iterate over a jQuery object, executing a function for **each matched element.
 				  console.log( key, val ); //key is jsons index, val is whats inside jsons{ }, members or properties are abv, state, contacts.
 
                 //**Can I specify unique ID in these parameters?
 
 				//.push() is a function that adds an element on the end of the ARRAY and expands the array respectively.
 
-				items.push( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
+				/*data.push( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
 				  console.log( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
 
 					  //add all <p> items to a not displayed <ul> element
@@ -45,7 +43,7 @@ $(document).ready(function(){
 
 					  //jill from wwc rec'd i add a stop function in this loop.
 
-					  }).appendTo( "#txtDOT" );//"class": "txtDOT",
+					  }).appendTo( "#txtDOT" );//"class": "txtDOT",*/
 				});//end each() iterator function
 
             //jQuery Selector $() function w optional 2nd parameter to do a search within an event handler
