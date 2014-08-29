@@ -1,10 +1,7 @@
 
-function userClicked(getVal){
-        alert('user clicked: ' + getVal);
-        return getVal;
-        }
 
-$(document).ready(function(){
+
+//$(document).ready(function(){
 
 /*var curElement = document.SELECTED?Element;
     function onClick(e) {
@@ -19,14 +16,18 @@ $(document).ready(function(){
 
        //var getState = "nh";
 
+     function userClicked(stateID){
+            console.log('user clicked: ' + stateID);
+            return stateID;
+            }
 
-		var getVal = {};//http://www.mkyong.com/javascript/how-to-access-json-object-in-javascript
+		var getVal = {};
 
 		  $.getJSON("stateInfoList.json", function( data ) {  //get resource function
 			console.log(data);//
 
 			      $.each(data, function( key, val ) { //each() Iterate over a jQuery object, executing a function for **each matched element.
-				  console.log( key, val ); //key is jsons index, val is whats inside jsons{ }, members or properties are abv, state, contacts.
+				  console.log( key, val ); //key is 'fl', val is whats inside { }, members are state, contacts.
 
                 //**Can I specify unique ID in these parameters?
 
@@ -55,4 +56,4 @@ $(document).ready(function(){
 
           });
 
-});
+//});
