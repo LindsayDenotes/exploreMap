@@ -1,43 +1,53 @@
+$(document).ready(function(){
 
+//var curElement = document.SELECTED?Element;
+    //function onClick(e) {
+      //          console.log(e);
+        //        var outputElement = document.getElementById('output-element');
 
+//var getState = "nh";
 
-//$(document).ready(function(){
+//var g = document.querySelector('#fl')
+  //      console.log('user clicked ');
 
-/*var curElement = document.SELECTED?Element;
-    function onClick(e) {
-                console.log(e);
-                var outputElement = document.getElementById('output-element');
-    //**can i put a function here $(clicked on <#g>).ready(function(){...?*/
+  //    g.dataId
 
-        //$( "#fl" ).bind( "click", function() { //Do I need to write 52 binding functions that will pass unique ID to the getJSON function?
-        //alert( "User clicked on 'fl.'" );
+//$( "#fl" ).bind( "click", function(){
+  //      console.log('user clicked ' + "#");
 
-        //});
+        /*;(function(){
 
-       //var getState = "nh";
+        var stateID = document.querySelectorAll( 'g' )[0];
+        g.addEventListener( 'click', function( e ){
 
-     function userClicked(stateID){
-            console.log('user clicked: ' + stateID);
-            return stateID;
-            }
+              console.log( e.target, e.currentTarget ); //div, div
+              e.preventDefault();
 
-		var getVal = {};
+          });
 
+        }());*/
+
+  $('g').on('click', function (event) {
+     console.log(this.id);
+       //var id = key
+
+       	var states = {};
+
+        //function = $.getJSON();
 		  $.getJSON("stateInfoList.json", function( data ) {  //get resource function
 			console.log(data);//
+
 
 			      $.each(data, function( key, val ) { //each() Iterate over a jQuery object, executing a function for **each matched element.
 				  console.log( key, val ); //key is 'fl', val is whats inside { }, members are state, contacts.
 
-                //**Can I specify unique ID in these parameters?
-
 				//.push() is a function that adds an element on the end of the ARRAY and expands the array respectively.
 
-				/*data.push( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
+				data.push( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
 				  console.log( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
 
 					  //add all <p> items to a not displayed <ul> element
-					  $( "<ul/>", {
+					 /* $( "<ul/>", {
 					  "class": "my-new-list",
 					  html: items.join( "" ) //this joins all or **selected element(s)** back into a ~nonformatted~ string.//Put g#id in ("")?//
 					  //join method only works with arrays, not jquery objects.
@@ -55,5 +65,7 @@
                 				});
 
           });
+  });
 
-//});
+});
+
