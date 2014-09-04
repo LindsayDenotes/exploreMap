@@ -10,7 +10,6 @@ $(document).ready(function(){
 //var g = document.querySelector('#fl')
   //      console.log('user clicked ');
 
-  //    g.dataId
 
 //$( "#fl" ).bind( "click", function(){
   //      console.log('user clicked ' + "#");
@@ -27,44 +26,44 @@ $(document).ready(function(){
 
         }());*/
 
-  $('g').on('click', function (event) {
+  $("g").on("click", function (e) {
      console.log(this.id);
-       //var id = key
+       //var $( "g" ).data( "key" ) === this; or  this.id === this; still trying to zero in on the selected state key in JSON file
+        var $e = $(e.currentTarget);//target is this.id
+        //clicked.css('background', 'blue');//clicked is not defined yet
 
-       	var states = {};
+        var items = [];
 
-        //function = $.getJSON();
-		  $.getJSON("stateInfoList.json", function( data ) {  //get resource function
-			console.log(data);//
+        $.getJSON('stateInfoList.json', function( data ) {
+            console.log ( data );//whole JSON object
 
+            $.each ( data, function( key, val ){
+              console.log ( key, val );//key is 'fl', val is whats inside { }s
 
-			      $.each(data, function( key, val ) { //each() Iterate over a jQuery object, executing a function for **each matched element.
-				  console.log( key, val ); //key is 'fl', val is whats inside { }, members are state, contacts.
+              items.push( "<p id=state " + key + ">" + val.state + "<p id=contacts>" + val.contacts + "</p></p>");
+               console.log( "<p id=state " + key + ">" + val.state + "<p id=contacts>" + val.contacts + "</p></p>");
 
-				//.push() is a function that adds an element on the end of the ARRAY and expands the array respectively.
+                  //add all <p> items to a <ul>
+                  $( "<ul>", { //style='display:none';>"
+                        "class": "my-new-list",
 
-				data.push( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
-				  console.log( "<p id=state'" + key + "'>" + val.state + "<p id=contacts'>" + val.contacts + "'</p></p>");
+                         html: items.join( "" ) //this joins all or **selected element(s)** back into a ~nonformatted~ string.//Put g#id in ("")?//
+                          //join method only works with arrays, not jquery objects.
+                  }).appendTo( "#txtDOT" );//
 
-					  //add all <p> items to a not displayed <ul> element
-					 /* $( "<ul/>", {
-					  "class": "my-new-list",
-					  html: items.join( "" ) //this joins all or **selected element(s)** back into a ~nonformatted~ string.//Put g#id in ("")?//
-					  //join method only works with arrays, not jquery objects.
+                    //jQuery Selector $() function w optional 2nd parameter to do a search within an event handler
+                    $("p").on("click", function (e) {//Using e is just a short for event. You can pass any variable name you desire.
+                        var $e = $(e.target);//target is #txtDOT
+                        clicked.css('background', 'red');
+                    });
 
-					  //jill from wwc rec'd i add a stop function in this loop.
+            });
 
-					  }).appendTo( "#txtDOT" );//"class": "txtDOT",*/
-				});//end each() iterator function
+                         //$('#txtDOT').html('<p id=state" + key + "'>' + val.state + '"</p>'); If I used plain object instead of array,
+                         //$('#txtDOT').append('<p id=contacts">' + val.contacts + '"</p>'); this might have worked
 
-            //jQuery Selector $() function w optional 2nd parameter to do a search within an event handler
-            //**This isn't doing anything
-			$("li").on("click", function (e) {//Using e is just a short for event. You can pass any variable name you desire.
-                				var $e = $(e.target);
-                				clicked.css('background', 'red');
-                				});
+        });
 
-          });
   });
 
 });
