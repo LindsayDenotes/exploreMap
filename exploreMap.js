@@ -26,49 +26,56 @@
 
 $(document).ready(function(){
 
-    var items = [];
+    var items = {};
 
     $.getJSON("stateInfoList.json", function( data ) {
         console.log ( data );//whole JSON object
 
         $("g").on("click", function (e) {
-           console.log(this.id);
+           console.log("user clicked " + this.id);
            //var $e = $(e.currentTarget);//target should be clicked shape but I can't tell yet
             //clicked.css("background", "blue");//clicked is not defined yet
-            var selectedState = (this.id);
-              console.log(selectedState);
+            selectedState = (this.id);
+              console.log("so var selectedState is " + selectedState);
 
-            $.each ( data.items, function( key, val ){
-              console.log ( key, val );//key is "00" or "01", val is whats inside json's { }s
+                    $.each ( data, function( key, val ){
+                      console.log ( key, val );//key is "nh" or "fl", val is whats inside json's { }s
 
-                $.each( data.items, function(){
-                    //console.log("Abv: " + this.abv);
-                    //console.log("State: " + this.state);
-                    //console.log("Contacts: " + this.contacts);
+                          //$.each( data, function(){
+                          //  console.log("Abv: " + this.abv);
+                            //console.log("State: " + this.state);
+                            //console.log("Contacts: " + this.contacts);
 
-                        if (this.abv = selectedState){
-                        console.log("match " + selectedState + key);
+                        var jsonKey = ( key );
+                          console.log ("this is one of all loaded state keys: " + jsonKey);
 
-                       // var i = selectedState
+                           if (jsonKey = selectedState){
+                           console.log("match " + selectedState + key);
 
-                        //items.i.push( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
-                          //console.log( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
+                              $("#txtDOT").html("<p id='state " + key + "'>" + val.state + "'</p>");
+                              $("#txtDOT").append("<p id='contacts'>" + val.contacts + "'</p>");
 
-                        //$("#txtDOT")
-                        //  .html( "<p>All new content. <em>You bet!</em></p>" );
 
-                         // $("txtDOT").html(function(index,currentcontent)
 
-                        }
+                               // var i = selectedState
+
+                                //items.i.push( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
+                                  //console.log( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
+
+                                //$("#txtDOT")
+                                //  .html( "<p>All new content. <em>You bet!</em></p>" );
+
+                                 // $("txtDOT").html(function(index,currentcontent)
+
+                            }
 
                             else {
-                            console.log("selectedState ID doesn't match any abv!")
+                            console.log("selectedState ID doesn't match key")
                             }
-                });
 
-          	});
+                    });
 
-          /*items.push( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
+            /*items.push( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
           	console.log( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
 
               //add all <p> items to a <ul>
