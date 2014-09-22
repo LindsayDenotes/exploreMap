@@ -1,103 +1,67 @@
-//var curElement = document.SELECTED?Element;
-    //function onClick(e) {
-      //          console.log(e);
-        //        var outputElement = document.getElementById('output-element');
-
-//var getState = "nh";
-
-//var g = document.querySelector('#fl')
-  //      console.log('user clicked ');
-
-
-//$( "#fl" ).bind( "click", function(){
-  //      console.log('user clicked ' + "#");
-
-        /*;(function(){
-
-        var stateID = document.querySelectorAll( 'g' )[0];
-        g.addEventListener( 'click', function( e ){
-
-              console.log( e.target, e.currentTarget ); //div, div
-              e.preventDefault();
-
-          });
-
-        }());*/
-
 $(document).ready(function(){
 
     var items = {};
+    $.getJSON("stateInfoList.json", function(data) {
+      console.log (data);//whole JSON object
 
-    $.getJSON("stateInfoList.json", function( data ) {
-        console.log ( data );//whole JSON object
+      $(".svg-container").addClass("not-clicked");
 
         $("g").on("click", function (e) {
            console.log("user clicked " + this.id);
-           //var $e = $(e.currentTarget);//target should be clicked shape but I can't tell yet
-            //clicked.css("background", "blue");//clicked is not defined yet
+
+           $(this).removeClass("not-clicked");//not removing the class from 'this' shape on click
+
+           // $(".clicked").on("click", function() {
+           //   $(this).addClass("clicked").removeClass("not-clicked").off("click");
+           // });
+
+           //$("g").toggleClass("clicked");//try toggleAttribute??
+           //$(".svg-content").toggleClass("clicked");
+
+           //$(this).css("fill-opacity", "0.1");//this works but doesn't go off when next shape is clicked. Hmmm.
+
+            /*not hurting or helping
+            var $e = $(e.currentTarget);
+            $(this).filter(x).css( "fill-opacity", "0.1" );
+            */
+
             selectedState = (this.id);
               console.log("so var selectedState is " + selectedState);
 
-                    $.each ( data, function( key, val ){
+                     $.each ( data, function( key, val ){
                       console.log ( key, val );//key is "nh" or "fl", val is whats inside json's { }s
-
-                          //$.each( data, function(){
-                          //  console.log("Abv: " + this.abv);
-                            //console.log("State: " + this.state);
-                            //console.log("Contacts: " + this.contacts);
 
                         var jsonKey = ( key );
                           console.log ("this is one of all loaded state keys: " + jsonKey);
 
-                           if (jsonKey = selectedState){
-                           console.log("match " + selectedState + key);
+                           if (jsonKey == selectedState){
+                            console.log("selectedState ID " + selectedState + " MATCHES key: " + jsonKey);
+                            console.log(val.contacts);
 
-                              $("#txtDOT").html("<p id='state " + key + "'>" + val.state + "'</p>");
-                              $("#txtDOT").append("<p id='contacts'>" + val.contacts + "'</p>");
+                            var contactsText = (val.contacts);
+                              contactsText = contactsText.replace(/\n/g, "<br />");
+                              console.log(contactsText);
 
+                              $("#txtDOT").html("<p id='state " + key + "'>" + val.state + "</p>");
+                              $("#txtDOT").append("<p id='contacts'>" + contactsText + "</p>");
 
+                           }
 
-                               // var i = selectedState
-
-                                //items.i.push( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
-                                  //console.log( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
-
-                                //$("#txtDOT")
-                                //  .html( "<p>All new content. <em>You bet!</em></p>" );
-
-                                 // $("txtDOT").html(function(index,currentcontent)
-
-                            }
-
-                            else {
-                            console.log("selectedState ID doesn't match key")
-                            }
+                           else {
+                           console.log("selectedState ID " + selectedState + " does NOT match key: " + jsonKey)
+                           }
 
                     });
 
-            /*items.push( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
-          	console.log( "<p id='state " + key + "'>" + val.state + "<p id='contacts'>" + val.contacts + "'</p></p>");
-
-              //add all <p> items to a <ul>
-              $( "<ul>", { //style="display:none";>
-                    "class": "my-new-list",
-
-                     html:items.join( "" ) //this joins all or **selected element(s)** back into a ~nonformatted~ string.//("")accepts no arguments//
-                      //join method only works with arrays, not jquery objects.
-              }).appendTo( "#txtDOT" );//
-
-                //jQuery Selector $() function w optional 2nd parameter to do a search within an event handler
-                $("p").on("click", function (e) {//Using e is just a short for event. You can pass any variable name you desire.
+                /*jQuery Selector $() function w optional 2nd parameter to do a search within an event handler
+                $("g").on("click", function (e) {//Using e is just a short for event. You can pass any variable name you desire.
                      var $e = $(e.target);//target is #txtDOT
                      clicked.css("background", "red");
                 });
-            */
+                */
         });
 
     });
 
 });
 
-//If I use plain object instead of array, this might work:
-//$("#txtDOT").html("<p id='state " + key + "'>" + val.state + "'</p>");
-//$("#txtDOT").append("<p id='contacts'>" + val.contacts + "'</p>");
