@@ -4,12 +4,42 @@ $(document).ready(function(){
     $.getJSON("stateInfoList.json", function(data) {
       console.log (data);//whole JSON object
 
-      $(".svg-container").addClass("not-clicked");
+      //$(".svg-container").addClass("not-clicked");
 
         $("g").on("click", function (e) {
            console.log("user clicked " + this.id);
 
-           $(this).removeClass("not-clicked");//not removing the class from 'this' shape on click
+           $(this).attr("class", "clicked").siblings("g").removeAttr("class","clicked");
+
+           /*var mySVG = this; //these two lines work, but of course how to remove when next shape is clicked?
+           mySVG.setAttribute("class", "clicked");*/
+
+
+           //mySVG.siblings.setAttribute("class", "not-clicked");//this works
+
+
+           //mySVG.siblings.removeClass("clicked");
+
+
+           //$(this).addClass("active").siblings("g").removeClass("active");//from Lentie
+
+           //$(".svg-container").addClass("clicked");
+
+
+           /*$(".svg-container").on("click", "g", function() {//try svg.svg-content
+               var $this = $(this); // cache for efficiency
+
+               if ($this.hasClass("not-clicked")) { // if the row is currently highlighted
+                   $this.removeClass("not-clicked");
+               } else {
+                   $this.addClass("clicked");
+               }
+           });*/
+
+           //var mySVG = document.querySelector('#svg circle');
+           //mySVG.setAttribute('class', 'myClass');
+
+           //$(this).removeClass("not-clicked");//not removing the class from 'this' shape on click
 
            // $(".clicked").on("click", function() {
            //   $(this).addClass("clicked").removeClass("not-clicked").off("click");
